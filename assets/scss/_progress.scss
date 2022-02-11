@@ -1,0 +1,40 @@
+.progress-ring {
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-ring-bg {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 5px);
+  width: 173px;
+  height: 173px;
+  border-radius: 100%;
+  border: 6px solid #dbdbdb;
+}
+
+.progress-ring__circle {
+  transition: 0.35s stroke-dashoffset;
+  // axis compensation
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke: var(--theme-color);
+}
+
+.progress {
+  position: relative;
+
+  .progress-percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 75px;
+
+    small {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.header {
+  margin-bottom: 60px;
+  padding-top: 20px;
+  padding-left: 30px;
+
+  .auth {
+    display: flex;
+
+    a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      background-color: #fff;
+      font-size: 14px;
+
+      &:first-of-type {
+        background-color: var(--theme-color);
+        border-radius: 10px 0 0 10px;
+        color: #fff;
+      }
+
+      &:last-of-type {
+        border-radius: 0 10px 10px 0;
+        border: 1px solid #dfdfdf;
+        color: #484848;
+      }
+    }
+  }
+
+  .user {
+    display: flex;
+    gap: 10px;
+
+    & > * {
+      padding: 10px 24px;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+  }
+}

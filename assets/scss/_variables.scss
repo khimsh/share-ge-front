@@ -1,0 +1,21 @@
+:root {
+  // theme colors
+  --blue: #0033ff;
+  --cyan: #00b9ff;
+  --green: #00ae3a;
+  --pink: #ee00ff;
+  --red: #ff004e;
+  --orange: #ff4600;
+  --theme-color: var(--cyan);
+
+  --border-radius: 15px;
+
+  --dark: to right, #005bbb, #00428a, #003670, #002954;
+  --light: to right, #ffffff, #eaf4ff, #d9ebff, #c9e3ff, #acd4ff;
+  --mode: var(--dark);
+
+  // fonts
+  --righteous: 'Righteous', sans-serif;
+  --arial: 'BPG Arial', sans-serif;
+  --mtavruli: 'BPG ExtraSquare Mtavruli', sans-serif;
+}
