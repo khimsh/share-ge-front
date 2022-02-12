@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>share.ge</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- script -->
+    <script src="assets/js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page-heading">
+          <h1 class="page-title">
+            <a href="/">
+              <svg class="theme-color">
+                <use href="assets/images/logo.svg#logo" />
+              </svg>
+              SHARE.GE
+            </a>
+          </h1>
+        </div>
+
+        <div class="register-form">
+          <form>
+            <div data-stage="1">
+              <h2>რეგისტრაცია</h2>
+
+              <div class="form-element">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="input"
+                  placeholder="სახელი"
+                  required
+                />
+                <label for="name" class="label">სახელი</label>
+              </div>
+
+              <div class="form-element">
+                <input
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  class="input"
+                  placeholder="გვარი"
+                  required
+                />
+                <label for="lastname" class="label">გვარი</label>
+              </div>
+
+              <div class="form-element">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="input"
+                  placeholder="ელ.ფოსტა"
+                  required
+                />
+                <label for="email" class="label">ელ.ფოსტა</label>
+              </div>
+
+              <div class="form-element">
+                <input
+                  type="password"
+                  name="password1"
+                  id="password1"
+                  class="input"
+                  placeholder="პაროლი"
+                  required
+                />
+                <label for="password1" class="label">პაროლი</label>
+              </div>
+
+              <div class="form-element">
+                <input
+                  type="password"
+                  name="password2"
+                  id="password2"
+                  class="input"
+                  placeholder="პაროლის დადასტურება"
+                  required
+                />
+                <label for="password2" class="label">პაროლის დადასტურება</label>
+              </div>
+
+              <button type="submit" class="btn-primary">რეგისტრაცია</button>
+            </div>
+
+            <div data-stage="2">
+              <div class="form-element-inline">
+                <div class="form-element-radio">
+                  <input type="radio" name="plan" id="yearly" value="yearly" checked />
+                  <label for="yearly">
+                    <div>
+                      <p class="plan">წლიური</p>
+                      <p class="price">120 ლარი</p>
+                    </div>
+                    <p class="info">დაზოგე 17%</p>
+                  </label>
+                </div>
+
+                <div class="form-element-radio">
+                  <input type="radio" name="plan" id="monthly" value="monthly" />
+                  <label for="monthly">
+                    <div>
+                      <p class="plan">თვიური</p>
+                      <p class="price">12 ლარი</p>
+                    </div>
+                    <p class="info">ყოველთვიური გადახადა</p>
+                  </label>
+                </div>
+              </div>
+
+              <h3>ბილინგის მისამართი</h3>
+
+              <div class="form-element">
+                <input
+                  type="text"
+                  name="company"
+                  id="company"
+                  class="input"
+                  placeholder="კომპანიის სახელი (სურვილისამებრ)"
+                />
+                <label for="company" class="label">კომპანიის სახელი (სურვილისამებრ)</label>
+              </div>
+
+              <div class="form-element">
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  class="input"
+                  placeholder="მისამართი"
+                />
+                <label for="address" class="label">მისამართი</label>
+              </div>
+
+              <div class="form-element-inline">
+                <div class="form-element">
+                  <input type="text" name="city" id="city" class="input" placeholder="ქალაქი" />
+                  <label for="city" class="label">ქალაქი</label>
+                </div>
+
+                <div class="form-element">
+                  <input
+                    type="text"
+                    name="zip-code"
+                    id="zip-code"
+                    class="input"
+                    placeholder="ზიპ კოდი"
+                  />
+                  <label for="zip-code" class="label">ზიპ კოდი</label>
+                </div>
+              </div>
+
+              <div class="form-element">
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  class="input"
+                  placeholder="საქართველო"
+                />
+                <label for="country" class="label">საქართველო</label>
+              </div>
+
+              <button type="submit" class="btn-primary">რეგისტრაციის დასასრული</button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <aside class="set-mode">
+        <button data-mode="light">
+          <svg>
+            <use href="assets/images/sun.svg#sun" />
+          </svg>
+        </button>
+        <span>&mdash;</span>
+        <button data-mode="dark">
+          <svg>
+            <use href="assets/images/moon.svg#moon" />
+          </svg>
+        </button>
+      </aside>
+
+      <footer>
+        <div class="color-picker">
+          <p>რომელი ფერი გინდა შენ ამოირჩიე</p>
+
+          <div class="colors">
+            <button class="color" data-color="blue"></button>
+            <button class="color" data-color="cyan"></button>
+            <button class="color" data-color="green"></button>
+            <button class="color" data-color="pink"></button>
+            <button class="color" data-color="red"></button>
+            <button class="color" data-color="orange"></button>
+          </div>
+        </div>
+
+        <p class="copyright">
+          Created By
+          <a href="http://proservice.ge" target="_blank" rel="noopener noreferrer">Proservice</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

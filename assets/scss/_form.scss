@@ -102,3 +102,202 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.register-form {
+  h2 {
+    margin-bottom: 15px;
+    font-family: var(--arial);
+    font-size: 30px;
+    text-align: center;
+    color: var(--text, #fff);
+    font-weight: 400;
+  }
+
+  h3 {
+    font-family: var(--mtavruli);
+    font-size: 14px;
+    color: var(--text, #fff);
+    font-weight: 400;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 30px;
+  padding-inline: 10px;
+  font-family: var(--mtavruli);
+  font-size: 14px;
+  color: var(--input, #252525);
+  text-transform: uppercase;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:placeholder-shown + .label {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &::placeholder {
+    font-family: var(--mtavruli);
+    font-size: 14px;
+    color: var(--label, #7a7a7a);
+    text-transform: uppercase;
+  }
+}
+
+.label {
+  position: absolute;
+  left: 20px;
+  left: 15px;
+  top: -9px;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: var(--mtavruli);
+  font-size: 14px;
+  color: var(--label, #7a7a7a);
+  text-transform: uppercase;
+  transition: all 0.15s ease-in-out;
+  z-index: 1;
+
+  opacity: 1;
+  visibility: initial;
+}
+
+.form-element {
+  position: relative;
+  padding: 10px;
+  background: #fff;
+  border-radius: var(--border-radius);
+}
+
+.form-element-radio {
+  position: relative;
+
+  input[type='radio'] {
+    visibility: hidden;
+    position: absolute;
+
+    &:checked + label {
+      background-color: var(--theme-color);
+
+      &::before {
+        background: #fff;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+
+      .plan,
+      .price {
+        color: #fff;
+      }
+
+      .info {
+        color: #333333;
+      }
+    }
+  }
+
+  label {
+    display: block;
+    padding: 3rem 3rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+
+    transition: all 0.2s ease-in-out;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+      background: #dfeeff;
+
+      transition: all 0.2s ease-in-out;
+    }
+
+    &::after {
+      content: '\2713';
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      font-weight: 700;
+      opacity: 0;
+      color: var(--theme-color);
+
+      transition: all 0.2s ease-in-out;
+    }
+
+    & > div {
+      width: max-content;
+      margin: 0 auto;
+    }
+  }
+
+  .plan {
+    text-align: left;
+    font-family: var(--mtavruli);
+    font-size: 14px;
+    color: #333333;
+
+    transition: all 0.2s ease-in-out;
+  }
+
+  .price {
+    font-family: var(--mtavruli);
+    font-size: 26px;
+    margin: 18px 0 27px;
+    color: #333333;
+
+    transition: all 0.2s ease-in-out;
+  }
+
+  .info {
+    font-family: var(--mtavruli);
+    font-size: 12px;
+    color: #7a7a7a;
+
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.form-element-inline {
+  display: flex;
+  gap: 20px;
+
+  & > * {
+    flex-basis: 50%;
+  }
+}
+
+[data-stage] {
+  margin: 50px auto;
+}
+
+[data-stage='1'] {
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  display: none;
+}
+
+[data-stage='2'] {
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  // display: none;
+}
