@@ -13,7 +13,7 @@
     <script src="assets/js/script.js" defer></script>
   </head>
   <body>
-    <div class="wrapper" data-theme="dark">
+    <div class="wrapper" data-theme="dark" id="drop-zone">
       <header class="header">
         <div class="auth">
           <a href="login.html">ავტორიზაცია</a>
@@ -44,15 +44,9 @@
           </div>
 
           <div class="input-info-container">
-            <input
-              type="text"
-              name="file-name"
-              id="file-name"
-              placeholder="ფაილის სახელი"
-            />
+            <input type="text" name="file-name" id="file-name" placeholder="ფაილის სახელი" />
 
-            <textarea name="message" id="message" placeholder="მესიჯი...">
-            </textarea>
+            <textarea name="message" id="message" placeholder="მესიჯი..."> </textarea>
 
             <button type="submit">ლინკის გენერირება</button>
           </div>
@@ -89,12 +83,7 @@
 
         <p class="copyright">
           Created By
-          <a
-            href="http://proservice.ge"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Proservice</a
-          >
+          <a href="http://proservice.ge" target="_blank" rel="noopener noreferrer">Proservice</a>
         </p>
       </footer>
     </div>

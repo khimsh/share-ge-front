@@ -1,11 +1,12 @@
 :root {
   // theme colors
-  --blue: #0033ff;
-  --cyan: #00b9ff;
-  --green: #00ae3a;
-  --pink: #ee00ff;
-  --red: #ff004e;
-  --orange: #ff4600;
+  --blue: hsl(228 100% 50%);
+  --cyan: hsl(196 100% 50%);
+  --green: hsl(140 100% 34%);
+  --pink: hsl(296 100% 50%);
+  --red: hsl(342 100% 50%);
+  --orange: hsl(16 100% 50%);
+
   --theme-color: var(--cyan);
 
   --border-radius: 15px;
@@ -15,7 +16,10 @@
   --mode: var(--dark);
 
   // fonts
-  --righteous: 'Righteous', sans-serif;
-  --arial: 'BPG Arial', sans-serif;
-  --mtavruli: 'BPG ExtraSquare Mtavruli', sans-serif;
+  --righteous: 'Righteous', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --arial: 'BPG Arial', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --mtavruli: 'BPG ExtraSquare Mtavruli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

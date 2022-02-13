@@ -43,19 +43,13 @@ const themeColor = bodyStyles.getPropertyValue('--theme-color'); //get
 
 colors.forEach((color) =>
   color.addEventListener('click', () => {
-    document.body.style.setProperty(
-      '--theme-color',
-      `var(--${color.dataset.color})`
-    ); //set new theme-color
+    document.body.style.setProperty('--theme-color', `var(--${color.dataset.color})`); //set new theme-color
     localStorage.setItem('theme-color', color.dataset.color); // save new theme color to local storage
   })
 );
 
 if (localStorage.getItem('theme-color') != null) {
-  document.body.style.setProperty(
-    '--theme-color',
-    `var(--${localStorage.getItem('theme-color')})`
-  ); // set theme-clor if it exists in local storage
+  document.body.style.setProperty('--theme-color', `var(--${localStorage.getItem('theme-color')})`); // set theme-clor if it exists in local storage
 }
 
 // switch mode
@@ -70,8 +64,57 @@ modes.forEach((mode) =>
 );
 
 if (localStorage.getItem('mode') != null) {
-  document.body.style.setProperty(
-    '--mode',
-    `var(--${localStorage.getItem('mode')})`
-  ); // set mode if it exists in local storage
+  document.body.style.setProperty('--mode', `var(--${localStorage.getItem('mode')})`); // set mode if it exists in local storage
 }
+
+// Drag & Drop
+const dropZone = document.querySelector('#drop-zone');
+
+function dragOverHandler(ev) {
+  console.log('File(s) in drop zone');
+  dropZone.classList.add('active');
+
+  // Prevent default behavior (Prevent file from being opened)
+  ev.preventDefault();
+}
+
+function dragLeaveHandler(e) {
+  dropZone.classList.remove('active');
+}
+
+function dropHandler(e) {
+  console.log('File(s) dropped');
+
+  // Prevent default behavior (Prevent file from being opened)
+  e.preventDefault();
+
+  if (e.dataTransfer.items) {
+    // Use DataTransferItemList interface to access the file(s)
+    for (var i = 0; i < e.dataTransfer.items.length; i++) {
+      // If dropped items aren't files, reject them
+      if (e.dataTransfer.items[i].kind === 'file') {
+        var file = e.dataTransfer.items[i].getAsFile();
+        console.log('... file[' + i + '].name = ' + file.name);
+      }
+    }
+  } else {
+    // Use DataTransfer interface to access the file(s)
+    for (var i = 0; i < e.dataTransfer.files.length; i++) {
+      console.log('... file[' + i + '].name = ' + e.dataTransfer.files[i].name);
+    }
+  }
+
+  dropZone.classList.remove('active');
+}
+
+dropZone.addEventListener('dragover', (e) => {
+  dragOverHandler(e);
+});
+
+dropZone.addEventListener('dragleave', (e) => {
+  dragLeaveHandler(e);
+});
+
+dropZone.addEventListener('drop', (e) => {
+  dropHandler(e);
+});
