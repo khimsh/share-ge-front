@@ -71,8 +71,6 @@ modes.forEach((mode) =>
 
 if (localStorage.getItem('mode') != null) {
   document.body.className = '';
-  console.log(localStorage.getItem('mode'));
-
   document.body.classList.add(`${localStorage.getItem('mode')}`); // set mode if it exists in local storage
 }
 
