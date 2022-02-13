@@ -51,13 +51,30 @@ body {
   font-family: var(--arial);
 }
 
+.sr-only {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 .wrapper {
+  padding: 30px;
   width: 100%;
   height: 100vh;
   background: url(../images/bg.png), linear-gradient(var(--mode));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper main {
+  flex-grow: 1;
+}
+
+.border-bottom, .transfer-details__file, .transfer-details__info, .transfer-details__close, .received-files__count, .received-files__name, .received-files__expire-in {
+  border-bottom: 1px solid #cecece;
 }
 
 .page-heading {
@@ -92,7 +109,15 @@ body {
 
 .color-picker {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+@media only screen and (min-width: 1200px) {
+  .color-picker {
+    flex-direction: row;
+    gap: 40px;
+  }
 }
 .color-picker p {
   font-family: var(--arial);
@@ -102,6 +127,7 @@ body {
 
 .colors {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
 .colors .color {
@@ -114,9 +140,16 @@ body {
 
 footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 74px;
+  gap: 20px;
+}
+@media only screen and (min-width: 1200px) {
+  footer {
+    flex-direction: row;
+    justify-content: center;
+    gap: 74px;
+  }
 }
 footer .copyright {
   color: #fff;
@@ -190,7 +223,7 @@ footer .copyright a {
 
 .set-mode {
   position: absolute;
-  right: 30px;
+  right: 31px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -205,10 +238,144 @@ footer .copyright a {
   color: #fff;
 }
 
+.received-files {
+  max-width: 340px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: var(--border-radius);
+  text-align: center;
+  padding-bottom: 17px;
+}
+.received-files__expire-in {
+  padding-top: 32px;
+  padding-bottom: 10px;
+  font-family: var(--mtavruli);
+  font-size: 16px;
+  color: #333333;
+  text-transform: uppercase;
+}
+.received-files__name {
+  padding-block: 20px;
+  font-family: var(--arial);
+  font-size: 16px;
+  color: #333333;
+}
+.received-files__count {
+  padding-block: 22px;
+  margin-bottom: 17px;
+  font-family: var(--arial);
+  font-size: 30px;
+  color: var(--theme-color);
+}
+.received-files .btn-primary {
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+.transfer-details {
+  min-height: 80vh;
+  padding-block: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: #fff;
+  border-bottom-right-radius: 34px;
+}
+@media only screen and (min-width: 1920px) {
+  .transfer-details {
+    min-width: 700px;
+  }
+}
+.transfer-details > * {
+  padding-inline: 30px;
+}
+.transfer-details__close {
+  padding-bottom: 31px;
+  display: flex;
+  justify-content: flex-end;
+}
+.transfer-details__close button {
+  background: transparent;
+  display: grid;
+  place-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  border: 2px solid #333333;
+  cursor: pointer;
+}
+.transfer-details__info {
+  padding-top: 40px;
+  padding-bottom: 32px;
+}
+.transfer-details__content {
+  margin-top: 9px;
+  display: flex;
+  gap: 18px;
+}
+.transfer-details__title {
+  font-family: var(--mtavruli);
+  font-size: 30px;
+  color: #333333;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.transfer-details__title--2 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+.transfer-details__name {
+  font-family: var(--arial);
+  font-size: 14px;
+  color: #7a7a7a;
+}
+.transfer-details__content {
+  font-family: var(--arial);
+  font-size: 14px;
+  color: #7a7a7a;
+}
+.transfer-details__files {
+  padding-top: 37px;
+}
+.transfer-details__files__count {
+  margin-bottom: 12px;
+  font-family: var(--mtavruli);
+  font-size: 16px;
+  color: #333;
+}
+.transfer-details__files__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media only screen and (min-width: 1920px) {
+  .transfer-details__files__list {
+    max-width: 320px;
+  }
+}
+.transfer-details__file {
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.transfer-details__file__name {
+  font-family: var(--arial);
+  font-size: 14px;
+  color: #484848;
+}
+.transfer-details__file__size {
+  font-family: var(--arial);
+  font-size: 12px;
+  color: #7a7a7a;
+}
+
 .header {
   margin-bottom: 60px;
-  padding-top: 20px;
-  padding-left: 30px;
+  position: relative;
+  z-index: 10;
 }
 .header .auth {
   display: flex;

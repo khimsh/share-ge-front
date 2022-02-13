@@ -12,13 +12,33 @@ body {
   font-family: var(--arial);
 }
 
+.sr-only {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  // IE6, IE7
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 .wrapper {
+  padding: 30px;
   width: 100%;
   height: 100vh;
   background: url(../images/bg.png), linear-gradient(var(--mode));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid #cecece;
 }
 
 .page-heading {
@@ -57,7 +77,14 @@ body {
 
 .color-picker {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  @media only screen and (min-width: 1200px) {
+    flex-direction: row;
+    gap: 40px;
+  }
 
   p {
     font-family: var(--arial);
@@ -68,6 +95,7 @@ body {
 
 .colors {
   display: flex;
+  justify-content: center;
   gap: 10px;
 
   .color {
@@ -81,9 +109,15 @@ body {
 
 footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 74px;
+  gap: 20px;
+
+  @media only screen and (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 74px;
+  }
 
   .copyright {
     color: #fff;
@@ -162,7 +196,7 @@ footer {
 
 .set-mode {
   position: absolute;
-  right: 30px;
+  right: 31px;
   top: 50%;
   transform: translateY(-50%);
 
@@ -177,5 +211,162 @@ footer {
 
   span {
     color: #fff;
+  }
+}
+
+.received-files {
+  max-width: 340px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: var(--border-radius);
+  text-align: center;
+  padding-bottom: 17px;
+
+  &__expire-in {
+    @extend .border-bottom;
+    padding-top: 32px;
+    padding-bottom: 10px;
+    font-family: var(--mtavruli);
+    font-size: 16px;
+    color: #333333;
+    text-transform: uppercase;
+  }
+
+  &__name {
+    @extend .border-bottom;
+    padding-block: 20px;
+    font-family: var(--arial);
+    font-size: 16px;
+    color: #333333;
+  }
+
+  &__count {
+    @extend .border-bottom;
+    padding-block: 22px;
+    margin-bottom: 17px;
+    font-family: var(--arial);
+    font-size: 30px;
+    color: var(--theme-color);
+  }
+
+  .btn-primary {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+}
+
+.transfer-details {
+  min-height: 80vh;
+  padding-block: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: #fff;
+  border-bottom-right-radius: 34px;
+
+  @media only screen and (min-width: 1920px) {
+    min-width: 700px;
+  }
+
+  & > * {
+    padding-inline: 30px;
+  }
+
+  &__close {
+    @extend .border-bottom;
+    padding-bottom: 31px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background: transparent;
+      display: grid;
+      place-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 100%;
+      border: 2px solid #333333;
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    @extend .border-bottom;
+    padding-top: 40px;
+    padding-bottom: 32px;
+  }
+
+  &__content {
+    margin-top: 9px;
+    display: flex;
+    gap: 18px;
+  }
+
+  &__title {
+    font-family: var(--mtavruli);
+    font-size: 30px;
+    color: #333333;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &--2 {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+  }
+
+  &__name {
+    font-family: var(--arial);
+    font-size: 14px;
+    color: #7a7a7a;
+  }
+
+  &__content {
+    font-family: var(--arial);
+    font-size: 14px;
+    color: #7a7a7a;
+  }
+
+  &__files {
+    padding-top: 37px;
+
+    &__count {
+      margin-bottom: 12px;
+      font-family: var(--mtavruli);
+      font-size: 16px;
+      color: #333;
+    }
+
+    &__list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @media only screen and (min-width: 1920px) {
+        max-width: 320px;
+      }
+    }
+  }
+
+  &__file {
+    @extend .border-bottom;
+    padding-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    &__name {
+      font-family: var(--arial);
+      font-size: 14px;
+      color: #484848;
+    }
+
+    &__size {
+      font-family: var(--arial);
+      font-size: 12px;
+      color: #7a7a7a;
+    }
   }
 }
