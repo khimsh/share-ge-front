@@ -54,17 +54,26 @@ if (localStorage.getItem('theme-color') != null) {
 
 // switch mode
 const modes = document.querySelectorAll('[data-mode');
-const modeTheme = bodyStyles.getPropertyValue('--mode'); //get
+// const modeTheme = bodyStyles.getPropertyValue('--mode'); //get
 
 modes.forEach((mode) =>
   mode.addEventListener('click', () => {
-    document.body.style.setProperty('--mode', `var(--${mode.dataset.mode})`); //set new mode
     localStorage.setItem('mode', mode.dataset.mode); // save new mode to local storage
+    if (document.body.classList.contains('light')) {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+    } else if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+    }
   })
 );
 
 if (localStorage.getItem('mode') != null) {
-  document.body.style.setProperty('--mode', `var(--${localStorage.getItem('mode')})`); // set mode if it exists in local storage
+  document.body.className = '';
+  console.log(localStorage.getItem('mode'));
+
+  document.body.classList.add(`${localStorage.getItem('mode')}`); // set mode if it exists in local storage
 }
 
 // Drag & Drop

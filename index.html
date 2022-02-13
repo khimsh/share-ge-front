@@ -12,7 +12,7 @@
     <!-- script -->
     <script src="assets/js/script.js" defer></script>
   </head>
-  <body>
+  <body class="dark">
     <div class="wrapper" data-theme="dark" id="drop-zone">
       <header class="header">
         <div class="auth">
@@ -40,7 +40,15 @@
             <input type="file" name="file" id="file" />
             <label for="file" class="custom-file-upload">ატვირთე ფაილი</label>
 
-            <button class="folder-upload">ან აირჩე საქაღალდე</button>
+            <label for="multiple" class="folder-upload">ან აირჩე საქაღალდე</label>
+            <input
+              type="file"
+              id="multiple"
+              multiple
+              directory=""
+              webkitdirectory=""
+              mozdirectory=""
+            />
           </div>
 
           <div class="input-info-container">

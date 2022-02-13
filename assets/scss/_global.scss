@@ -32,6 +32,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
 
+  transition: all 0.2s ease-in-out;
+
   main {
     flex-grow: 1;
   }
@@ -54,25 +56,30 @@ body {
     text-transform: uppercase;
     text-decoration: none;
 
-    color: #fff;
+    color: var(--text);
 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 36px;
+
+    transition: color 0.2s ease-in-out;
   }
 
   svg {
     width: 85.25px;
     height: 93px;
     fill: var(--theme-color);
+    transition: fill 0.2s ease-in-out;
   }
 }
 
 .page-tagline {
   font-family: var(--arial);
   font-size: 30px;
-  color: #fff;
+  color: var(--text);
+
+  transition: color 0.2s ease-in-out;
 }
 
 .color-picker {
@@ -89,7 +96,9 @@ body {
   p {
     font-family: var(--arial);
     font-size: 12px;
-    color: #fff;
+    color: var(--text);
+
+    transition: color 0.2s ease-in-out;
   }
 }
 
@@ -120,14 +129,18 @@ footer {
   }
 
   .copyright {
-    color: #fff;
+    color: var(--text);
     font-size: 16px;
     font-family: var(--arial);
+
+    transition: color 0.2s ease-in-out;
 
     a {
       color: var(--theme-color);
       font-size: 20px;
       text-decoration: none;
+
+      transition: color 0.2s ease-in-out;
     }
   }
 }
@@ -186,6 +199,8 @@ footer {
   display: block;
   width: 100%;
   color: #fff;
+
+  transition: all 0.2s ease-in-out;
 }
 
 .copy-link {

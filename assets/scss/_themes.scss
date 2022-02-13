@@ -32,3 +32,13 @@
     display: block;
   }
 }
+
+.dark {
+  --mode: to right, #005bbb, #00428a, #003670, #002954;
+  --text: #fff;
+}
+
+.light {
+  --mode: to right, #ffffff, #eaf4ff, #d9ebff, #c9e3ff, #acd4ff;
+  --text: #333;
+}
