@@ -68,53 +68,55 @@ if (localStorage.getItem('mode') != null) {
 }
 
 // Drag & Drop
-const dropZone = document.querySelector('#drop-zone');
+if (document.querySelector('#drop-zone')) {
+  const dropZone = document.querySelector('#drop-zone');
 
-function dragOverHandler(ev) {
-  console.log('File(s) in drop zone');
-  dropZone.classList.add('active');
+  dropZone.addEventListener('dragover', (e) => {
+    dragOverHandler(e);
+  });
 
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
-}
+  dropZone.addEventListener('dragleave', (e) => {
+    dragLeaveHandler(e);
+  });
 
-function dragLeaveHandler(e) {
-  dropZone.classList.remove('active');
-}
+  dropZone.addEventListener('drop', (e) => {
+    dropHandler(e);
+  });
 
-function dropHandler(e) {
-  console.log('File(s) dropped');
+  function dragOverHandler(e) {
+    console.log('File(s) in drop zone');
+    dropZone.classList.add('active');
 
-  // Prevent default behavior (Prevent file from being opened)
-  e.preventDefault();
-
-  if (e.dataTransfer.items) {
-    // Use DataTransferItemList interface to access the file(s)
-    for (var i = 0; i < e.dataTransfer.items.length; i++) {
-      // If dropped items aren't files, reject them
-      if (e.dataTransfer.items[i].kind === 'file') {
-        var file = e.dataTransfer.items[i].getAsFile();
-        console.log('... file[' + i + '].name = ' + file.name);
-      }
-    }
-  } else {
-    // Use DataTransfer interface to access the file(s)
-    for (var i = 0; i < e.dataTransfer.files.length; i++) {
-      console.log('... file[' + i + '].name = ' + e.dataTransfer.files[i].name);
-    }
+    // Prevent default behavior (Prevent file from being opened)
+    e.preventDefault();
   }
 
-  dropZone.classList.remove('active');
+  function dragLeaveHandler(e) {
+    dropZone.classList.remove('active');
+  }
+
+  function dropHandler(e) {
+    console.log('File(s) dropped');
+
+    // Prevent default behavior (Prevent file from being opened)
+    e.preventDefault();
+
+    if (e.dataTransfer.items) {
+      // Use DataTransferItemList interface to access the file(s)
+      for (var i = 0; i < e.dataTransfer.items.length; i++) {
+        // If dropped items aren't files, reject them
+        if (e.dataTransfer.items[i].kind === 'file') {
+          var file = e.dataTransfer.items[i].getAsFile();
+          console.log('... file[' + i + '].name = ' + file.name);
+        }
+      }
+    } else {
+      // Use DataTransfer interface to access the file(s)
+      for (var i = 0; i < e.dataTransfer.files.length; i++) {
+        console.log('... file[' + i + '].name = ' + e.dataTransfer.files[i].name);
+      }
+    }
+
+    dropZone.classList.remove('active');
+  }
 }
-
-dropZone.addEventListener('dragover', (e) => {
-  dragOverHandler(e);
-});
-
-dropZone.addEventListener('dragleave', (e) => {
-  dragLeaveHandler(e);
-});
-
-dropZone.addEventListener('drop', (e) => {
-  dropHandler(e);
-});
