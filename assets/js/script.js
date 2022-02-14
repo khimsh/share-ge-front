@@ -54,20 +54,28 @@ if (localStorage.getItem('theme-color') != null) {
 
 // switch mode
 const modes = document.querySelectorAll('[data-mode');
-// const modeTheme = bodyStyles.getPropertyValue('--mode'); //get
+const lightMode = document.querySelector('[data-mode="light"]');
+const darkMode = document.querySelector('[data-mode="dark"]');
 
-modes.forEach((mode) =>
-  mode.addEventListener('click', () => {
-    localStorage.setItem('mode', mode.dataset.mode); // save new mode to local storage
-    if (document.body.classList.contains('light')) {
-      document.body.classList.remove('light');
-      document.body.classList.add('dark');
-    } else if (document.body.classList.contains('dark')) {
-      document.body.classList.remove('dark');
-      document.body.classList.add('light');
-    }
-  })
-);
+lightMode.addEventListener('click', () => {
+  console.log('light was clicked');
+  if (document.body.classList.contains('light')) return;
+
+  document.body.classList.remove('dark');
+  document.body.classList.add('light');
+  localStorage.setItem('mode', 'light'); // save new mode to local storage
+});
+
+darkMode.addEventListener('click', () => {
+  console.log('dark was clicked');
+
+  if (document.body.classList.contains('dark')) return;
+
+  document.body.classList.remove('light');
+  document.body.classList.add('dark');
+
+  localStorage.setItem('mode', 'dark'); // save new mode to local storage
+});
 
 if (localStorage.getItem('mode') != null) {
   document.body.className = '';
@@ -110,6 +118,7 @@ if (document.querySelector('#drop-zone')) {
 
     if (e.dataTransfer.items) {
       // Use DataTransferItemList interface to access the file(s)
+
       for (var i = 0; i < e.dataTransfer.items.length; i++) {
         // If dropped items aren't files, reject them
         if (e.dataTransfer.items[i].kind === 'file') {
