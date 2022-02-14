@@ -136,3 +136,25 @@ if (document.querySelector('#drop-zone')) {
     dropZone.classList.remove('active');
   }
 }
+
+// Register form
+if (document.querySelector('[data-register]')) {
+  const form = document.querySelector('[data-register]');
+  const stageOne = document.querySelector('[data-stage="1"]');
+  const stageTwo = document.querySelector('[data-stage="2"]');
+  const proceedBtn = document.querySelector('[data-proceed]');
+
+  proceedBtn.addEventListener('click', () => {
+    if (
+      form.name.value !== '' &&
+      form.lastname.value !== '' &&
+      form.email.value !== '' &&
+      form.password1.value !== '' &&
+      form.password2.value !== '' &&
+      form.password1.value === form.password2.value
+    ) {
+      stageOne.classList.add('hide');
+      stageTwo.classList.add('active');
+    }
+  });
+}

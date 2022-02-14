@@ -702,14 +702,19 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+[data-stage="1"].hide {
   display: none;
 }
 
 [data-stage="2"] {
   max-width: 540px;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 20px;
+}
+[data-stage="2"].active {
+  display: flex;
 }
 
 .progress-ring {

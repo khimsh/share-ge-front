@@ -290,14 +290,18 @@
   flex-direction: column;
   gap: 20px;
 
-  display: none;
+  &.hide {
+    display: none;
+  }
 }
 
 [data-stage='2'] {
   max-width: 540px;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 20px;
 
-  // display: none;
+  &.active {
+    display: flex;
+  }
 }
